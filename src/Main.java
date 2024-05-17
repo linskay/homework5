@@ -8,14 +8,13 @@ public class Main {
         if (clientOS == 1 && clientDeviceYear >= 2015) {
             System.out.println("Установите версию приложения для Android по ссылке");
         }
-        if (clientDeviceYear < 2015) {
+        if (clientDeviceYear < 2015 && clientOS == 1) {
             System.out.println("Установите облегченную версию приложения для Android по ссылке");
         } else if (clientOS == 0 && clientDeviceYear >= 2015) {
             System.out.println("Установите версию приложения для iOS по ссылке");
-            if (clientDeviceYear < 2015) {
+        } else if (clientDeviceYear < 2015 && clientOS == 0) {
                 System.out.println("Установите облегченную версию приложения для iOS по ссылке");
             }
-        }
 
         System.out.println("Задание 3");
         int year = 2024;
@@ -30,18 +29,20 @@ public class Main {
         }
 
         System.out.println("Задание 4");
-        int deliveryDistance = 95;
-        boolean distance1 = deliveryDistance < 20;
-        boolean distance2 = (deliveryDistance < 60 && deliveryDistance>= 20);
-        boolean distance3 = (deliveryDistance <100 && deliveryDistance >= 60);
+        int deliveryDistance = 100;
+        boolean distance1 = (deliveryDistance < 20);
+        boolean distance2 = (deliveryDistance < 60 && deliveryDistance >= 20);
+        boolean distance3 = (deliveryDistance <= 100 && deliveryDistance >= 60);
         if (distance1) System.out.println("Потребуется один день");
         if (distance2) System.out.println("Потребуется два дня");
         if (distance3) System.out.println("Потребуется три дня");
-        else System.out.println("Доставки нет");
+        if (deliveryDistance > 100) {
+            System.out.println("Доставки нет");
+        }
 
         System.out.println("Задание 5");
 
-        int monthNumber = 12;
+        int monthNumber = 6;
         switch (monthNumber){
             case 1:
         System.out.println("Январь");
@@ -78,6 +79,7 @@ public class Main {
                 break;
             case 12:
                 System.out.println("Декабрь");
+                break;
             default:
                 System.out.println("Некорректный месяц");
         }
